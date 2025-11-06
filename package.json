@@ -4,8 +4,10 @@
   "type": "module",
   "description": "Design tokens multi-brand from Figma",
   "scripts": {
-    "build": "npx style-dictionary build --config style-dictionary.config.cjs",
-    "fetch": "node fetch-figma-variables.js"
+    "split": "node split-tokens.js",
+    "build": "npm run split && npx style-dictionary build --config style-dictionary.config.cjs",
+    "fetch": "node fetch-figma-variables.js",
+    "test-api": "node test-figma-api.js"
   },
   "keywords": [
     "design-tokens",

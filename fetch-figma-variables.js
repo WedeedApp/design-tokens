@@ -25,7 +25,9 @@ async function fetchVariables() {
 
   // Si 404, essayer l'endpoint /variables/published (variables publiées)
   if (res.status === 404) {
-    console.log("⚠️  Endpoint /variables/local non trouvé, tentative avec /variables/published...");
+    console.log(
+      "⚠️  Endpoint /variables/local non trouvé, tentative avec /variables/published..."
+    );
     res = await fetch(
       `https://api.figma.com/v1/files/${FIGMA_FILE_ID}/variables/published`,
       {
@@ -36,7 +38,9 @@ async function fetchVariables() {
 
   // Si toujours 404, essayer l'ancien endpoint /variables
   if (res.status === 404) {
-    console.log("⚠️  Endpoint /variables/published non trouvé, tentative avec /variables...");
+    console.log(
+      "⚠️  Endpoint /variables/published non trouvé, tentative avec /variables..."
+    );
     res = await fetch(
       `https://api.figma.com/v1/files/${FIGMA_FILE_ID}/variables`,
       {

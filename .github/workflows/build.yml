@@ -31,6 +31,10 @@ jobs:
           FIGMA_FILE_ID: ${{ secrets.FIGMA_FILE_ID }}
         continue-on-error: true
 
+      - name: Split tokens by brand
+        run: npm run split
+        continue-on-error: true
+
       - name: Build Style Dictionary
         run: npm run build
 
