@@ -26,7 +26,6 @@ const brandMapping = {
   "soluce-pay": "solucepay",
   certivote: "certivote",
   solucepay: "solucepay",
-  foundation: "foundation",
 };
 
 // Transformer la structure pour Style Dictionary
@@ -54,29 +53,19 @@ if (allTokens.colors) {
   });
 }
 
-// Traiter le theme (ajouter à tous les brands ou à foundation)
+// Traiter le theme (ajouter à tous les brands)
 if (allTokens.theme) {
   const themeValue = allTokens.theme.value || allTokens.theme;
 
-  // Ajouter le theme à foundation si elle existe, sinon à tous les brands
-  if (transformedBrands.foundation) {
-    transformedBrands.foundation.theme = {};
+  // Ajouter le theme à tous les brands existants
+  Object.keys(transformedBrands).forEach((brand) => {
+    transformedBrands[brand].theme = {};
     Object.keys(themeValue).forEach((themeKey) => {
-      transformedBrands.foundation.theme[themeKey] = {
+      transformedBrands[brand].theme[themeKey] = {
         value: themeValue[themeKey],
       };
     });
-  } else {
-    // Ajouter le theme à tous les brands existants
-    Object.keys(transformedBrands).forEach((brand) => {
-      transformedBrands[brand].theme = {};
-      Object.keys(themeValue).forEach((themeKey) => {
-        transformedBrands[brand].theme[themeKey] = {
-          value: themeValue[themeKey],
-        };
-      });
-    });
-  }
+  });
 }
 
 // Si la structure est déjà au format attendu (avec brands en clés racine)
