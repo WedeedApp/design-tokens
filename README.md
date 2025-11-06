@@ -13,8 +13,25 @@ Système de design tokens multi-brand extrait depuis Figma et buildé avec Style
 
 - Node.js 20+
 - npm
-- Token d'accès Figma
+- Token d'accès Figma (pour l'API REST - **Enterprise uniquement**)
 - ID du fichier Figma
+
+## ⚠️ Important : Plan Figma requis
+
+**L'API REST des variables Figma nécessite un plan Enterprise avec un siège complet.**
+
+Si vous êtes sur un plan **Pro**, vous avez deux options :
+
+### Option 1 : Utiliser un plugin Figma (Recommandé pour Pro)
+
+1. Installez le plugin **"Variables to JSON"** ou **"Design Tokens"** dans Figma
+2. Exportez manuellement les variables depuis Figma
+3. Placez les fichiers JSON dans le dossier `tokens/`
+4. Le workflow GitHub Actions buildera automatiquement les fichiers CSS/JSON
+
+### Option 2 : Mettre à niveau vers Enterprise
+
+Contactez l'administrateur de votre organisation pour passer au plan Enterprise.
 
 ## 🔧 Configuration locale
 
@@ -29,7 +46,7 @@ cd design-tokens
 npm install
 ```
 
-3. **Configurer les variables d'environnement**
+3. **Configurer les variables d'environnement** (Enterprise uniquement)
 
 **Important :** L'accès aux variables via l'API Figma nécessite :
 - Un compte avec un **siège complet dans une organisation Enterprise**
@@ -51,7 +68,7 @@ FIGMA_TOKEN=your_figma_token_here
 FIGMA_FILE_ID=your_figma_file_id_here
 ```
 
-4. **Tester l'extraction**
+4. **Tester l'extraction** (Enterprise uniquement)
 ```bash
 npm run fetch
 ```
@@ -73,7 +90,7 @@ design-tokens/
 │   ├── certivote/
 │   ├── foundation/
 │   └── solucepay/
-├── fetch-figma-variables.js  # Script d'extraction Figma
+├── fetch-figma-variables.js  # Script d'extraction Figma (Enterprise)
 ├── style-dictionary.config.cjs  # Configuration Style Dictionary
 └── .github/workflows/build.yml   # Workflow CI/CD
 ```
@@ -82,7 +99,7 @@ design-tokens/
 
 Le workflow GitHub Actions :
 1. Se déclenche à chaque push sur `main` ou manuellement
-2. Extrait les variables depuis Figma
+2. Extrait les variables depuis Figma (si Enterprise) ou utilise les fichiers dans `tokens/`
 3. Build les tokens avec Style Dictionary
 4. Commit et push les fichiers générés
 
@@ -124,7 +141,7 @@ mix.copy(
 
 ## 🛠️ Scripts disponibles
 
-- `npm run fetch` - Extrait les variables depuis Figma
+- `npm run fetch` - Extrait les variables depuis Figma (Enterprise uniquement)
 - `npm run build` - Build les tokens avec Style Dictionary
 
 ## 📝 Notes
@@ -132,3 +149,4 @@ mix.copy(
 - Les tokens sont organisés par collections dans Figma
 - Chaque collection devient un fichier JSON dans `tokens/`
 - Style Dictionary génère les fichiers CSS et JSON dans `build/`
+- Pour les plans Pro, utilisez un plugin Figma pour exporter les variables manuellement
