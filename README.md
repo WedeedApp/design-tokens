@@ -31,13 +31,19 @@ npm install
 
 3. **Configurer les variables d'environnement**
 
-**Important :** Votre token Figma doit avoir le scope `file_variables:read` pour accéder aux variables.
+**Important :** L'accès aux variables via l'API Figma nécessite :
+- Un compte avec un **siège complet dans une organisation Enterprise**
+- Le scope `file_variables:read` dans votre token
+
+**Note :** Si le scope `file_variables:read` n'apparaît pas dans la liste des scopes disponibles, cela signifie que votre compte n'a pas les permissions nécessaires (plan Enterprise requis).
 
 Pour créer un token avec les bons scopes :
 1. Allez sur https://www.figma.com/settings
 2. Section "Personal access tokens"
-3. Créez un nouveau token avec au minimum le scope `file_variables:read`
-4. Copiez le token généré
+3. Faites défiler la liste complète des scopes
+4. Cochez `file_variables:read` (et `file_variables:write` si nécessaire)
+5. Si le scope n'apparaît pas, contactez l'administrateur de votre organisation Enterprise
+6. Copiez le token généré
 
 Créez un fichier `.env` à la racine :
 ```env
