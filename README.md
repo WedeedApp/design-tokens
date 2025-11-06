@@ -80,7 +80,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Download design tokens
         run: |
           mkdir -p resources/design-tokens/build
@@ -88,12 +88,12 @@ jobs:
             -H "Accept: application/vnd.github.v3.raw" \
             -L https://api.github.com/repos/WedeedApp/design-tokens/contents/build/certivote/certivote.css \
             -o resources/design-tokens/build/certivote.css
-          
+
           curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3.raw" \
             -L https://api.github.com/repos/WedeedApp/design-tokens/contents/build/certivote/certivote.json \
             -o resources/design-tokens/build/certivote.json
-      
+
       - name: Commit changes
         run: |
           git config user.name "github-actions"
@@ -142,14 +142,14 @@ class DesignTokens
     public static function get(string $brand = 'certivote'): array
     {
         $path = resource_path("design-tokens/build/{$brand}/{$brand}.json");
-        
+
         if (!file_exists($path)) {
             throw new \Exception("Design tokens not found for brand: {$brand}");
         }
-        
+
         return json_decode(file_get_contents($path), true);
     }
-    
+
     public static function getValue(string $key, string $brand = 'certivote'): ?string
     {
         $tokens = self::get($brand);
