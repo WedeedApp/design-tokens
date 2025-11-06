@@ -10,14 +10,50 @@ if (!FIGMA_FILE_ID || !FIGMA_TOKEN) {
 }
 
 async function fetchVariables() {
-  console.log(`🔍 Extraction des variables depuis Figma (file: ${FIGMA_FILE_ID})...`);
+  console.log(
+    `🔍 Extraction des variables depuis Figma (file: ${FIGMA_FILE_ID})...`
+  );
 
-  const res = await fetch(
+  // Essayer d'abord l'endpoint /variables
+  let res = await fetch(
     `https://api.figma.com/v1/files/${FIGMA_FILE_ID}/variables`,
     {
       headers: { "X-FIGMA-TOKEN": FIGMA_TOKEN },
     }
   );
+
+  // Si 404, essayer de récupérer le fichier complet
+  if (res.status === 404) {
+    console.log("⚠️  Endpoint /variables non trouvé, tentative avec /files...");
+    res = await fetch(`https://api.figma.com/v1/files/${FIGMA_FILE_ID}`, {
+      headers: { "X-FIGMA-TOKEN": FIGMA_TOKEN },
+    });
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      throw new Error(`Erreur API Figma ${res.status}: ${errorText}`);
+    }
+
+    const fileData = await res.json();
+    
+    // Vérifier si le fichier contient des variables
+    if (!fileData.document || !fileData.styles) {
+      console.warn("⚠️  Le fichier ne contient pas de variables/styles");
+      console.log("Structure du fichier:", Object.keys(fileData));
+      
+      // Essayer l'endpoint local variables
+      console.log("🔄 Tentative avec l'endpoint local variables...");
+      res = await fetch(
+        `https://api.figma.com/v1/files/${FIGMA_FILE_ID}/variables/local`,
+        {
+          headers: { "X-FIGMA-TOKEN": FIGMA_TOKEN },
+        }
+      );
+    } else {
+      // Extraire les variables depuis le fichier complet
+      return extractVariablesFromFile(fileData);
+    }
+  }
 
   if (!res.ok) {
     const errorText = await res.text();
@@ -27,15 +63,32 @@ async function fetchVariables() {
   const data = await res.json();
 
   // Debug: afficher la structure reçue
-  console.log(`📊 Collections trouvées: ${data.meta?.collections?.length || 0}`);
+  console.log("📊 Structure reçue:", Object.keys(data));
+  console.log(
+    `📊 Collections trouvées: ${data.meta?.collections?.length || 0}`
+  );
   console.log(`📊 Variables trouvées: ${data.meta?.variables?.length || 0}`);
 
   if (!data.meta?.collections || !data.meta?.variables) {
-    console.warn("⚠️  Aucune collection ou variable trouvée dans la réponse Figma");
-    console.log("Structure reçue:", JSON.stringify(data, null, 2));
+    console.warn(
+      "⚠️  Aucune collection ou variable trouvée dans la réponse Figma"
+    );
+    console.log("Structure complète:", JSON.stringify(data, null, 2));
     return;
   }
 
+  processVariables(data);
+}
+
+function extractVariablesFromFile(fileData) {
+  console.log("📊 Extraction des variables depuis le fichier complet...");
+  // Si le fichier contient des variables dans une structure différente
+  // Cette fonction peut être adaptée selon la structure réelle
+  console.warn("⚠️  Extraction depuis fichier complet non implémentée");
+  console.log("Structure disponible:", Object.keys(fileData));
+}
+
+function processVariables(data) {
   // Transformer les données Figma en format Style Dictionary
   const collections = {};
 
@@ -66,9 +119,8 @@ async function fetchVariables() {
           const g = Math.round(modeValue.g * 255);
           const b = Math.round(modeValue.b * 255);
           const a = modeValue.a !== undefined ? modeValue.a : 1;
-          value = a < 1 
-            ? `rgba(${r}, ${g}, ${b}, ${a})`
-            : `rgb(${r}, ${g}, ${b})`;
+          value =
+            a < 1 ? `rgba(${r}, ${g}, ${b}, ${a})` : `rgb(${r}, ${g}, ${b})`;
         } else if (modeValue.type === "VARIABLE_ALIAS") {
           // Référence à une autre variable
           value = `{${modeValue.id}}`;
@@ -125,4 +177,3 @@ fetchVariables().catch((error) => {
   console.error("❌ Erreur:", error.message);
   process.exit(1);
 });
-
