@@ -1,6 +1,9 @@
 const fs = require("fs");
 
-const brands = fs.readdirSync("./tokens").map(f => f.replace(".json", ""));
+const brands = fs
+  .readdirSync("./tokens")
+  .filter((f) => f.endsWith(".json") && f !== "all.json")
+  .map((f) => f.replace(".json", ""));
 
 module.exports = {
   source: brands.map(b => `tokens/${b}.json`),
