@@ -31,6 +31,14 @@ npm install
 
 3. **Configurer les variables d'environnement**
 
+**Important :** Votre token Figma doit avoir le scope `file_variables:read` pour accéder aux variables.
+
+Pour créer un token avec les bons scopes :
+1. Allez sur https://www.figma.com/settings
+2. Section "Personal access tokens"
+3. Créez un nouveau token avec au minimum le scope `file_variables:read`
+4. Copiez le token généré
+
 Créez un fichier `.env` à la racine :
 ```env
 FIGMA_TOKEN=your_figma_token_here
