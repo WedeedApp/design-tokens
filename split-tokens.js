@@ -46,7 +46,9 @@ if (allTokens.colors) {
     transformedBrands[normalizedBrand].color = {};
 
     Object.keys(brandColors).forEach((colorKey) => {
-      transformedBrands[normalizedBrand].color[colorKey] = {
+      // Ajouter un tiret avant les chiffres (ex: neutral50 -> neutral-50)
+      const normalizedColorKey = colorKey.replace(/([a-z])(\d)/gi, "$1-$2");
+      transformedBrands[normalizedBrand].color[normalizedColorKey] = {
         value: brandColors[colorKey],
       };
     });
@@ -61,7 +63,9 @@ if (allTokens.theme) {
   Object.keys(transformedBrands).forEach((brand) => {
     transformedBrands[brand].theme = {};
     Object.keys(themeValue).forEach((themeKey) => {
-      transformedBrands[brand].theme[themeKey] = {
+      // Ajouter un tiret avant les chiffres si nécessaire
+      const normalizedThemeKey = themeKey.replace(/([a-z])(\d)/gi, "$1-$2");
+      transformedBrands[brand].theme[normalizedThemeKey] = {
         value: themeValue[themeKey],
       };
     });

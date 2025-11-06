@@ -5,9 +5,24 @@ const StyleDictionary = require("style-dictionary");
 StyleDictionary.registerFormat({
   name: "css/variables-custom",
   formatter: function ({ dictionary, options }) {
+    // Générer le timestamp avec le fuseau horaire correct (Europe/Paris)
+    const now = new Date();
+    const parisTimeString = now.toLocaleString("en-US", { 
+      timeZone: "Europe/Paris",
+      weekday: "short",
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false
+    });
+    const timestamp = parisTimeString.replace(/,/g, "").replace(/\s+/g, " ") + " CET";
+    
     return (
       "/**\n * Do not edit directly\n * Generated on " +
-      new Date().toUTCString() +
+      timestamp +
       "\n */\n\n:root {\n" +
       dictionary.allTokens
         .map((token) => {
