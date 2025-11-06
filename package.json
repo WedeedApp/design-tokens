@@ -1,0 +1,21 @@
+{
+  "name": "design-tokens",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Design tokens multi-brand from Figma",
+  "scripts": {
+    "build": "npx style-dictionary build --config style-dictionary.config.cjs",
+    "fetch": "node fetch-figma-variables.js"
+  },
+  "keywords": [
+    "design-tokens",
+    "figma",
+    "style-dictionary"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "style-dictionary": "^3.9.0"
+  }
+}
