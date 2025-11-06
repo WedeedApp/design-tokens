@@ -7,7 +7,7 @@ StyleDictionary.registerFormat({
   formatter: function ({ dictionary, options }) {
     // Générer le timestamp avec le fuseau horaire correct (Europe/Paris)
     const now = new Date();
-    const parisTimeString = now.toLocaleString("en-US", { 
+    const parisTimeString = now.toLocaleString("en-US", {
       timeZone: "Europe/Paris",
       weekday: "short",
       day: "2-digit",
@@ -19,7 +19,7 @@ StyleDictionary.registerFormat({
       hour12: false
     });
     const timestamp = parisTimeString.replace(/,/g, "").replace(/\s+/g, " ") + " CET";
-    
+
     return (
       "/**\n * Do not edit directly\n * Generated on " +
       timestamp +
