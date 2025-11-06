@@ -1,102 +1,102 @@
 {
   "color": {
-    "neutral-50": {
+    "neutral50": {
       "value": "#fafafa"
     },
-    "neutral-100": {
+    "neutral100": {
       "value": "#f5f5f5"
     },
-    "neutral-200": {
+    "neutral200": {
       "value": "#e5e5e5"
     },
-    "neutral-300": {
+    "neutral300": {
       "value": "#d4d4d4"
     },
-    "neutral-400": {
+    "neutral400": {
       "value": "#a3a3a3"
     },
-    "neutral-500": {
+    "neutral500": {
       "value": "#737373"
     },
-    "neutral-600": {
+    "neutral600": {
       "value": "#525252"
     },
-    "neutral-700": {
+    "neutral700": {
       "value": "#404040"
     },
-    "neutral-800": {
+    "neutral800": {
       "value": "#262626"
     },
-    "neutral-900": {
+    "neutral900": {
       "value": "#171717"
     },
-    "neutral-950": {
+    "neutral950": {
       "value": "#0a0a0a"
     },
-    "red-50": {
+    "red50": {
       "value": "#fef2f2"
     },
-    "red-100": {
+    "red100": {
       "value": "#ffe2e2"
     },
-    "red-200": {
+    "red200": {
       "value": "#fecaca"
     },
-    "red-300": {
+    "red300": {
       "value": "#fca5a5"
     },
-    "red-400": {
+    "red400": {
       "value": "#f87171"
     },
-    "red-500": {
+    "red500": {
       "value": "#ef4444"
     },
-    "red-600": {
+    "red600": {
       "value": "#dc2626"
     },
-    "red-700": {
+    "red700": {
       "value": "#b91c1c"
     },
-    "red-800": {
+    "red800": {
       "value": "#991b1b"
     },
-    "red-900": {
+    "red900": {
       "value": "#7f1d1d"
     },
-    "red-950": {
+    "red950": {
       "value": "#450a0a"
     },
-    "blue-50": {
+    "blue50": {
       "value": "#eff6ff"
     },
-    "blue-100": {
+    "blue100": {
       "value": "#dbeafe"
     },
-    "blue-200": {
+    "blue200": {
       "value": "#bfdbfe"
     },
-    "blue-300": {
+    "blue300": {
       "value": "#93c5fd"
     },
-    "blue-400": {
+    "blue400": {
       "value": "#60a5fa"
     },
-    "blue-500": {
+    "blue500": {
       "value": "#3b82f6"
     },
-    "blue-600": {
+    "blue600": {
       "value": "#2563eb"
     },
-    "blue-700": {
+    "blue700": {
       "value": "#1d4ed8"
     },
-    "blue-800": {
+    "blue800": {
       "value": "#1e40af"
     },
-    "blue-900": {
+    "blue900": {
       "value": "#1e3a8a"
     },
-    "blue-950": {
+    "blue950": {
       "value": "#172554"
     },
     "white": {
@@ -105,565 +105,565 @@
     "black": {
       "value": "#000000"
     },
-    "orange-50": {
+    "orange50": {
       "value": "#fff7ed"
     },
-    "orange-100": {
+    "orange100": {
       "value": "#ffedd5"
     },
-    "orange-200": {
+    "orange200": {
       "value": "#fed7aa"
     },
-    "orange-300": {
+    "orange300": {
       "value": "#fdba74"
     },
-    "orange-400": {
+    "orange400": {
       "value": "#fb923c"
     },
-    "orange-500": {
+    "orange500": {
       "value": "#f97316"
     },
-    "orange-600": {
+    "orange600": {
       "value": "#ea580c"
     },
-    "orange-700": {
+    "orange700": {
       "value": "#c2410c"
     },
-    "orange-800": {
+    "orange800": {
       "value": "#9a3412"
     },
-    "orange-900": {
+    "orange900": {
       "value": "#7c2d12"
     },
-    "orange-950": {
+    "orange950": {
       "value": "#431407"
     },
-    "amber-50": {
+    "amber50": {
       "value": "#fffbeb"
     },
-    "amber-100": {
+    "amber100": {
       "value": "#fef3c7"
     },
-    "amber-200": {
+    "amber200": {
       "value": "#fde68a"
     },
-    "amber-300": {
+    "amber300": {
       "value": "#fcd34d"
     },
-    "amber-400": {
+    "amber400": {
       "value": "#fbbf24"
     },
-    "amber-500": {
+    "amber500": {
       "value": "#f59e0b"
     },
-    "amber-600": {
+    "amber600": {
       "value": "#d97706"
     },
-    "amber-700": {
+    "amber700": {
       "value": "#b45309"
     },
-    "amber-800": {
+    "amber800": {
       "value": "#92400e"
     },
-    "amber-900": {
+    "amber900": {
       "value": "#78350f"
     },
-    "amber-950": {
+    "amber950": {
       "value": "#451a03"
     },
-    "lime-50": {
+    "lime50": {
       "value": "#f7fee7"
     },
-    "lime-100": {
+    "lime100": {
       "value": "#ecfccb"
     },
-    "lime-200": {
+    "lime200": {
       "value": "#d9f99d"
     },
-    "lime-300": {
+    "lime300": {
       "value": "#bef264"
     },
-    "lime-400": {
+    "lime400": {
       "value": "#a3e635"
     },
-    "lime-500": {
+    "lime500": {
       "value": "#84cc16"
     },
-    "lime-600": {
+    "lime600": {
       "value": "#65a30d"
     },
-    "lime-700": {
+    "lime700": {
       "value": "#4d7c0f"
     },
-    "lime-800": {
+    "lime800": {
       "value": "#3f6212"
     },
-    "lime-900": {
+    "lime900": {
       "value": "#365314"
     },
-    "lime-950": {
+    "lime950": {
       "value": "#1a2e05"
     },
-    "emerald-50": {
+    "emerald50": {
       "value": "#ecfdf5"
     },
-    "emerald-100": {
+    "emerald100": {
       "value": "#d1fae5"
     },
-    "emerald-200": {
+    "emerald200": {
       "value": "#a7f3d0"
     },
-    "emerald-300": {
+    "emerald300": {
       "value": "#6ee7b7"
     },
-    "emerald-400": {
+    "emerald400": {
       "value": "#34d399"
     },
-    "emerald-500": {
+    "emerald500": {
       "value": "#10b981"
     },
-    "emerald-600": {
+    "emerald600": {
       "value": "#059669"
     },
-    "emerald-700": {
+    "emerald700": {
       "value": "#047857"
     },
-    "emerald-800": {
+    "emerald800": {
       "value": "#065f46"
     },
-    "emerald-900": {
+    "emerald900": {
       "value": "#064e3b"
     },
-    "emerald-950": {
+    "emerald950": {
       "value": "#022c22"
     },
-    "teal-50": {
+    "teal50": {
       "value": "#f0fdfa"
     },
-    "teal-100": {
+    "teal100": {
       "value": "#ccfbf1"
     },
-    "teal-200": {
+    "teal200": {
       "value": "#99f6e4"
     },
-    "teal-300": {
+    "teal300": {
       "value": "#5eead4"
     },
-    "teal-400": {
+    "teal400": {
       "value": "#2dd4bf"
     },
-    "teal-500": {
+    "teal500": {
       "value": "#14b8a6"
     },
-    "teal-600": {
+    "teal600": {
       "value": "#0d9488"
     },
-    "teal-700": {
+    "teal700": {
       "value": "#0f766e"
     },
-    "teal-800": {
+    "teal800": {
       "value": "#115e59"
     },
-    "teal-900": {
+    "teal900": {
       "value": "#134e4a"
     },
-    "teal-950": {
+    "teal950": {
       "value": "#042f2e"
     },
-    "cyan-50": {
+    "cyan50": {
       "value": "#ecfeff"
     },
-    "cyan-100": {
+    "cyan100": {
       "value": "#cffafe"
     },
-    "cyan-200": {
+    "cyan200": {
       "value": "#a5f3fc"
     },
-    "cyan-300": {
+    "cyan300": {
       "value": "#67e8f9"
     },
-    "cyan-400": {
+    "cyan400": {
       "value": "#22d3ee"
     },
-    "cyan-500": {
+    "cyan500": {
       "value": "#06b6d4"
     },
-    "cyan-600": {
+    "cyan600": {
       "value": "#0891b2"
     },
-    "cyan-700": {
+    "cyan700": {
       "value": "#0e7490"
     },
-    "cyan-800": {
+    "cyan800": {
       "value": "#155e75"
     },
-    "cyan-900": {
+    "cyan900": {
       "value": "#164e63"
     },
-    "cyan-950": {
+    "cyan950": {
       "value": "#083344"
     },
-    "sky-50": {
+    "sky50": {
       "value": "#f0f9ff"
     },
-    "sky-100": {
+    "sky100": {
       "value": "#e0f2fe"
     },
-    "sky-200": {
+    "sky200": {
       "value": "#bae6fd"
     },
-    "sky-300": {
+    "sky300": {
       "value": "#7dd3fc"
     },
-    "sky-400": {
+    "sky400": {
       "value": "#38bdf8"
     },
-    "sky-500": {
+    "sky500": {
       "value": "#0ea5e9"
     },
-    "sky-600": {
+    "sky600": {
       "value": "#0284c7"
     },
-    "sky-700": {
+    "sky700": {
       "value": "#0369a1"
     },
-    "sky-800": {
+    "sky800": {
       "value": "#075985"
     },
-    "sky-900": {
+    "sky900": {
       "value": "#0c4a6e"
     },
-    "sky-950": {
+    "sky950": {
       "value": "#082f49"
     },
-    "indigo-50": {
+    "indigo50": {
       "value": "#eef2ff"
     },
-    "indigo-100": {
+    "indigo100": {
       "value": "#e0e7ff"
     },
-    "indigo-200": {
+    "indigo200": {
       "value": "#c7d2fe"
     },
-    "indigo-300": {
+    "indigo300": {
       "value": "#a5b4fc"
     },
-    "indigo-400": {
+    "indigo400": {
       "value": "#818cf8"
     },
-    "indigo-500": {
+    "indigo500": {
       "value": "#6366f1"
     },
-    "indigo-600": {
+    "indigo600": {
       "value": "#4f46e5"
     },
-    "indigo-700": {
+    "indigo700": {
       "value": "#4338ca"
     },
-    "indigo-800": {
+    "indigo800": {
       "value": "#3730a3"
     },
-    "indigo-900": {
+    "indigo900": {
       "value": "#312e81"
     },
-    "indigo-950": {
+    "indigo950": {
       "value": "#1e1b4b"
     },
-    "violet-50": {
+    "violet50": {
       "value": "#f5f3ff"
     },
-    "violet-100": {
+    "violet100": {
       "value": "#ede9fe"
     },
-    "violet-200": {
+    "violet200": {
       "value": "#ddd6fe"
     },
-    "violet-300": {
+    "violet300": {
       "value": "#c4b5fd"
     },
-    "violet-400": {
+    "violet400": {
       "value": "#a78bfa"
     },
-    "violet-500": {
+    "violet500": {
       "value": "#8b5cf6"
     },
-    "violet-600": {
+    "violet600": {
       "value": "#7c3aed"
     },
-    "violet-700": {
+    "violet700": {
       "value": "#6d28d9"
     },
-    "violet-800": {
+    "violet800": {
       "value": "#5b21b6"
     },
-    "violet-900": {
+    "violet900": {
       "value": "#4c1d95"
     },
-    "violet-950": {
+    "violet950": {
       "value": "#2e1065"
     },
-    "purple-50": {
+    "purple50": {
       "value": "#faf5ff"
     },
-    "purple-100": {
+    "purple100": {
       "value": "#f3e8ff"
     },
-    "purple-200": {
+    "purple200": {
       "value": "#e9d5ff"
     },
-    "purple-300": {
+    "purple300": {
       "value": "#d8b4fe"
     },
-    "purple-400": {
+    "purple400": {
       "value": "#c084fc"
     },
-    "purple-500": {
+    "purple500": {
       "value": "#a855f7"
     },
-    "purple-600": {
+    "purple600": {
       "value": "#9333ea"
     },
-    "purple-700": {
+    "purple700": {
       "value": "#7e22ce"
     },
-    "purple-800": {
+    "purple800": {
       "value": "#6b21a8"
     },
-    "purple-900": {
+    "purple900": {
       "value": "#581c87"
     },
-    "purple-950": {
+    "purple950": {
       "value": "#3b0764"
     },
-    "fuchsia-50": {
+    "fuchsia50": {
       "value": "#fdf4ff"
     },
-    "fuchsia-100": {
+    "fuchsia100": {
       "value": "#fae8ff"
     },
-    "fuchsia-200": {
+    "fuchsia200": {
       "value": "#f5d0fe"
     },
-    "fuchsia-300": {
+    "fuchsia300": {
       "value": "#f0abfc"
     },
-    "fuchsia-400": {
+    "fuchsia400": {
       "value": "#e879f9"
     },
-    "fuchsia-500": {
+    "fuchsia500": {
       "value": "#d946ef"
     },
-    "fuchsia-600": {
+    "fuchsia600": {
       "value": "#c026d3"
     },
-    "fuchsia-700": {
+    "fuchsia700": {
       "value": "#a21caf"
     },
-    "fuchsia-800": {
+    "fuchsia800": {
       "value": "#86198f"
     },
-    "fuchsia-900": {
+    "fuchsia900": {
       "value": "#701a75"
     },
-    "fuchsia-950": {
+    "fuchsia950": {
       "value": "#4a044e"
     },
-    "pink-50": {
+    "pink50": {
       "value": "#fdf2f8"
     },
-    "pink-100": {
+    "pink100": {
       "value": "#fce7f3"
     },
-    "pink-200": {
+    "pink200": {
       "value": "#fbcfe8"
     },
-    "pink-300": {
+    "pink300": {
       "value": "#f9a8d4"
     },
-    "pink-400": {
+    "pink400": {
       "value": "#f472b6"
     },
-    "pink-500": {
+    "pink500": {
       "value": "#ec4899"
     },
-    "pink-600": {
+    "pink600": {
       "value": "#db2777"
     },
-    "pink-700": {
+    "pink700": {
       "value": "#be185d"
     },
-    "pink-800": {
+    "pink800": {
       "value": "#9d174d"
     },
-    "pink-900": {
+    "pink900": {
       "value": "#831843"
     },
-    "pink-950": {
+    "pink950": {
       "value": "#500724"
     },
-    "rose-50": {
+    "rose50": {
       "value": "#fff1f2"
     },
-    "rose-100": {
+    "rose100": {
       "value": "#ffe4e6"
     },
-    "rose-200": {
+    "rose200": {
       "value": "#fecdd3"
     },
-    "rose-300": {
+    "rose300": {
       "value": "#fda4af"
     },
-    "rose-400": {
+    "rose400": {
       "value": "#fb7185"
     },
-    "rose-500": {
+    "rose500": {
       "value": "#f43f5e"
     },
-    "rose-600": {
+    "rose600": {
       "value": "#e11d48"
     },
-    "rose-700": {
+    "rose700": {
       "value": "#be123c"
     },
-    "rose-800": {
+    "rose800": {
       "value": "#9f1239"
     },
-    "rose-900": {
+    "rose900": {
       "value": "#881337"
     },
-    "rose-950": {
+    "rose950": {
       "value": "#4c0519"
     },
-    "green-50": {
+    "green50": {
       "value": "#f0fdf4"
     },
-    "green-100": {
+    "green100": {
       "value": "#dcfce7"
     },
-    "green-200": {
+    "green200": {
       "value": "#bbf7d0"
     },
-    "green-300": {
+    "green300": {
       "value": "#86efac"
     },
-    "green-400": {
+    "green400": {
       "value": "#4ade80"
     },
-    "green-500": {
+    "green500": {
       "value": "#22c55e"
     },
-    "green-600": {
+    "green600": {
       "value": "#16a34a"
     },
-    "green-700": {
+    "green700": {
       "value": "#15803d"
     },
-    "green-800": {
+    "green800": {
       "value": "#166534"
     },
-    "green-900": {
+    "green900": {
       "value": "#14532d"
     },
-    "green-950": {
+    "green950": {
       "value": "#052e16"
     },
-    "yellow-50": {
+    "yellow50": {
       "value": "#fefce8"
     },
-    "yellow-100": {
+    "yellow100": {
       "value": "#fef9c3"
     },
-    "yellow-200": {
+    "yellow200": {
       "value": "#fef08a"
     },
-    "yellow-300": {
+    "yellow300": {
       "value": "#fde047"
     },
-    "yellow-400": {
+    "yellow400": {
       "value": "#facc15"
     },
-    "yellow-500": {
+    "yellow500": {
       "value": "#eab308"
     },
-    "yellow-600": {
+    "yellow600": {
       "value": "#ca8a04"
     },
-    "yellow-700": {
+    "yellow700": {
       "value": "#a16207"
     },
-    "yellow-800": {
+    "yellow800": {
       "value": "#854d0e"
     },
-    "yellow-900": {
+    "yellow900": {
       "value": "#713f12"
     },
-    "yellow-950": {
+    "yellow950": {
       "value": "#422006"
     },
-    "primary-50": {
+    "primary50": {
       "value": "#fff2f1"
     },
-    "primary-100": {
+    "primary100": {
       "value": "#ffe3e1"
     },
-    "primary-200": {
+    "primary200": {
       "value": "#ffcfcb"
     },
-    "primary-300": {
+    "primary300": {
       "value": "#ffb6b1"
     },
-    "primary-400": {
+    "primary400": {
       "value": "#ff9e97"
     },
-    "primary-500": {
+    "primary500": {
       "value": "#ff867d"
     },
-    "primary-600": {
+    "primary600": {
       "value": "#dd6c64"
     },
-    "primary-700": {
+    "primary700": {
       "value": "#bb534b"
     },
-    "primary-800": {
+    "primary800": {
       "value": "#983932"
     },
-    "primary-900": {
+    "primary900": {
       "value": "#762019"
     },
-    "primary-950": {
+    "primary950": {
       "value": "#65130d"
     },
-    "accent-50": {
+    "accent50": {
       "value": "#9993ef"
     },
-    "accent-100": {
+    "accent100": {
       "value": "#8983e2"
     },
-    "accent-200": {
+    "accent200": {
       "value": "#6963c7"
     },
-    "accent-300": {
+    "accent300": {
       "value": "#4a43ab"
     },
-    "accent-400": {
+    "accent400": {
       "value": "#2a2390"
     },
-    "accent-500": {
+    "accent500": {
       "value": "#0a0375"
     },
-    "accent-600": {
+    "accent600": {
       "value": "#08025e"
     },
-    "accent-700": {
+    "accent700": {
       "value": "#060246"
     },
-    "accent-800": {
+    "accent800": {
       "value": "#04012f"
     },
-    "accent-900": {
+    "accent900": {
       "value": "#020117"
     },
-    "accent-950": {
+    "accent950": {
       "value": "#01000c"
     }
   },
@@ -674,112 +674,112 @@
     "fg": {
       "value": "#000000"
     },
-    "brand-primary": {
+    "brandPrimary": {
       "value": "#ff867d"
     },
-    "brand-primary-fg": {
+    "brandPrimaryFg": {
       "value": "#ffffff"
     },
-    "brand-secondary": {
+    "brandSecondary": {
       "value": "#f5f5f5"
     },
-    "brand-secondary-fg": {
+    "brandSecondaryFg": {
       "value": "#000000"
     },
-    "bg-muted": {
+    "bgMuted": {
       "value": "#fafafa"
     },
-    "fg-subtle": {
+    "fgSubtle": {
       "value": "#737373"
     },
-    "brand-accent": {
+    "brandAccent": {
       "value": "#0a0375"
     },
-    "brand-accent-fg": {
+    "brandAccentFg": {
       "value": "#ffffff"
     },
-    "feedback-destructive": {
+    "feedbackDestructive": {
       "value": "#ef4444"
     },
     "border": {
       "value": "#e5e5e5"
     },
-    "brand-primary-ring": {
+    "brandPrimaryRing": {
       "value": "#ffe3e1"
     },
-    "brand-secondary-ring": {
+    "brandSecondaryRing": {
       "value": "#e5e5e5"
     },
-    "feedback-destructive-ring": {
+    "feedbackDestructiveRing": {
       "value": "#ffe2e2"
     },
-    "feedback-success": {
+    "feedbackSuccess": {
       "value": "#15803d"
     },
-    "feedback-warning": {
+    "feedbackWarning": {
       "value": "#f97316"
     },
-    "feedback-warning-ring": {
+    "feedbackWarningRing": {
       "value": "#ffedd5"
     },
-    "feedback-success-ring": {
+    "feedbackSuccessRing": {
       "value": "#dcfce7"
     },
-    "overlay-backdrop": {
+    "overlayBackdrop": {
       "value": "#000000bf"
     },
-    "feedback-success-fg": {
+    "feedbackSuccessFg": {
       "value": "#ffffff"
     },
-    "feedback-warning-fg": {
+    "feedbackWarningFg": {
       "value": "#ffffff"
     },
-    "feedback-destructive-fg": {
+    "feedbackDestructiveFg": {
       "value": "#ffffff"
     },
-    "brand-accent-ring": {
+    "brandAccentRing": {
       "value": "#8983e2"
     },
-    "overlay-skeleton": {
+    "overlaySkeleton": {
       "value": "#f5f5f5"
     },
-    "input-bg": {
+    "inputBg": {
       "value": "#ffffff"
     },
-    "surface-popover-bg": {
+    "surfacePopoverBg": {
       "value": "#000000"
     },
-    "surface-popover-fg": {
+    "surfacePopoverFg": {
       "value": "#ffffff"
     },
-    "input-fg": {
+    "inputFg": {
       "value": "#000000"
     },
-    "surface-sidebar-bg": {
+    "surfaceSidebarBg": {
       "value": "#262626"
     },
-    "surface-sidebar-fg": {
+    "surfaceSidebarFg": {
       "value": "#ffffff"
     },
-    "border-hover": {
+    "borderHover": {
       "value": "#a3a3a3"
     },
-    "brand-primary-subtle": {
+    "brandPrimarySubtle": {
       "value": "#fff2f1"
     },
-    "brand-secondary-subtle": {
+    "brandSecondarySubtle": {
       "value": "#fafafa"
     },
-    "brand-accent-subtle": {
+    "brandAccentSubtle": {
       "value": "#9993ef"
     },
-    "feedback-success-subtle": {
+    "feedbackSuccessSubtle": {
       "value": "#dcfce7"
     },
-    "feedback-warning-subtle": {
+    "feedbackWarningSubtle": {
       "value": "#fff7ed"
     },
-    "feedback-destructive-subtle": {
+    "feedbackDestructiveSubtle": {
       "value": "#fef2f2"
     }
   }
