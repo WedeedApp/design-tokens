@@ -14,45 +14,35 @@ async function fetchVariables() {
     `🔍 Extraction des variables depuis Figma (file: ${FIGMA_FILE_ID})...`
   );
 
-  // Essayer d'abord l'endpoint /variables
+  // Essayer d'abord l'endpoint /variables/local (variables locales)
+  console.log("🔄 Tentative avec l'endpoint /variables/local...");
   let res = await fetch(
-    `https://api.figma.com/v1/files/${FIGMA_FILE_ID}/variables`,
+    `https://api.figma.com/v1/files/${FIGMA_FILE_ID}/variables/local`,
     {
       headers: { "X-FIGMA-TOKEN": FIGMA_TOKEN },
     }
   );
 
-  // Si 404, essayer de récupérer le fichier complet
+  // Si 404, essayer l'endpoint /variables/published (variables publiées)
   if (res.status === 404) {
-    console.log("⚠️  Endpoint /variables non trouvé, tentative avec /files...");
-    res = await fetch(`https://api.figma.com/v1/files/${FIGMA_FILE_ID}`, {
-      headers: { "X-FIGMA-TOKEN": FIGMA_TOKEN },
-    });
+    console.log("⚠️  Endpoint /variables/local non trouvé, tentative avec /variables/published...");
+    res = await fetch(
+      `https://api.figma.com/v1/files/${FIGMA_FILE_ID}/variables/published`,
+      {
+        headers: { "X-FIGMA-TOKEN": FIGMA_TOKEN },
+      }
+    );
+  }
 
-    if (!res.ok) {
-      const errorText = await res.text();
-      throw new Error(`Erreur API Figma ${res.status}: ${errorText}`);
-    }
-
-    const fileData = await res.json();
-    
-    // Vérifier si le fichier contient des variables
-    if (!fileData.document || !fileData.styles) {
-      console.warn("⚠️  Le fichier ne contient pas de variables/styles");
-      console.log("Structure du fichier:", Object.keys(fileData));
-      
-      // Essayer l'endpoint local variables
-      console.log("🔄 Tentative avec l'endpoint local variables...");
-      res = await fetch(
-        `https://api.figma.com/v1/files/${FIGMA_FILE_ID}/variables/local`,
-        {
-          headers: { "X-FIGMA-TOKEN": FIGMA_TOKEN },
-        }
-      );
-    } else {
-      // Extraire les variables depuis le fichier complet
-      return extractVariablesFromFile(fileData);
-    }
+  // Si toujours 404, essayer l'ancien endpoint /variables
+  if (res.status === 404) {
+    console.log("⚠️  Endpoint /variables/published non trouvé, tentative avec /variables...");
+    res = await fetch(
+      `https://api.figma.com/v1/files/${FIGMA_FILE_ID}/variables`,
+      {
+        headers: { "X-FIGMA-TOKEN": FIGMA_TOKEN },
+      }
+    );
   }
 
   if (!res.ok) {
