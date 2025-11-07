@@ -1,0 +1,27 @@
+name: Update Design Tokens in Projects
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Permet de déclencher manuellement
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build tokens
+        run: |
+          npm install
+          npm run build
+
+      - name: Commit and push built files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add build/
+          git diff --staged --quiet || git commit -m "chore: rebuild tokens [skip ci]"
+          git push

@@ -5,7 +5,9 @@
   "description": "Design tokens multi-brand from Figma",
   "scripts": {
     "split": "node split-tokens.js",
-    "build": "npm run split && npx style-dictionary build --config style-dictionary.config.cjs",
+    "build": "npm run split && npx style-dictionary build --config style-dictionary.config.cjs && node generate-tailwind-theme.js",
+    "postinstall": "npm run build && node install-hooks.js",
+    "install-hooks": "node install-hooks.js",
     "fetch": "node fetch-figma-variables.js"
   },
   "keywords": [

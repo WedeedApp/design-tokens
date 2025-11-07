@@ -1,222 +1,35 @@
 # Design Tokens
 
-Système de design tokens multi-brand extrait depuis Figma et buildé avec Style Dictionary.
+Système de design tokens multi-brand généré avec Style Dictionary.
 
-## 🎨 Fonctionnalités
-
-- ✅ Extraction automatique depuis Figma (Enterprise) ou import manuel
-- ✅ Support multi-brand (certivote, solucepay)
-- ✅ Build automatique avec Style Dictionary
-- ✅ Génération de CSS variables et JSON
-- ✅ CI/CD avec GitHub Actions
-- ✅ Format de tokens optimisé (sans préfixes, tirets préservés)
-
-## 📦 Formats générés
-
-Pour chaque brand, les fichiers suivants sont générés dans `build/{brand}/` :
-
-- **`{brand}.css`** : Variables CSS (`--neutral-50`, `--primary`, etc.)
-- **`{brand}.json`** : JSON plat pour intégration Laravel
-
-## 🚀 Utilisation
-
-### Méthode 1 : Git Submodule (Recommandé)
-
-Ajoutez ce repo comme submodule dans votre projet Laravel :
-
-```bash
-# Dans votre projet Laravel
-git submodule add git@github.com:WedeedApp/design-tokens.git resources/design-tokens
-git submodule update --init --recursive
-```
-
-Puis, dans votre `app.css` ou `vite.config.js` :
-
-```css
-/* resources/css/app.css */
-@import '../design-tokens/build/certivote/certivote.css';
-```
-
-Ou avec Vite :
-
-```js
-// vite.config.js
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-
-export default defineConfig({
-    plugins: [
-        laravel({
-            input: [
-                'resources/css/app.css',
-                'resources/js/app.js',
-            ],
-        }),
-    ],
-    resolve: {
-        alias: {
-            '@design-tokens': path.resolve(__dirname, 'resources/design-tokens/build'),
-        },
-    },
-});
-```
-
-### Méthode 2 : GitHub Actions (CI/CD)
-
-Créez un workflow GitHub Actions dans vos projets Laravel pour télécharger automatiquement les tokens :
-
-```yaml
-# .github/workflows/sync-design-tokens.yml
-name: Sync Design Tokens
-
-on:
-  workflow_dispatch:
-  schedule:
-    # Vérifie les mises à jour tous les jours à 6h
-    - cron: '0 6 * * *'
-
-jobs:
-  sync:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Download design tokens
-        run: |
-          mkdir -p resources/design-tokens/build
-          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3.raw" \
-            -L https://api.github.com/repos/WedeedApp/design-tokens/contents/build/certivote/certivote.css \
-            -o resources/design-tokens/build/certivote.css
-
-          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3.raw" \
-            -L https://api.github.com/repos/WedeedApp/design-tokens/contents/build/certivote/certivote.json \
-            -o resources/design-tokens/build/certivote.json
-
-      - name: Commit changes
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add resources/design-tokens/
-          git diff --staged --quiet || git commit -m "chore: update design tokens"
-          git push
-```
-
-### Méthode 3 : Téléchargement manuel
-
-Téléchargez les fichiers depuis GitHub et placez-les dans votre projet :
-
-```bash
-# Télécharger les fichiers CSS et JSON
-curl -L https://raw.githubusercontent.com/WedeedApp/design-tokens/main/build/certivote/certivote.css \
-  -o resources/css/design-tokens.css
-
-curl -L https://raw.githubusercontent.com/WedeedApp/design-tokens/main/build/certivote/certivote.json \
-  -o resources/json/design-tokens.json
-```
-
-## 💻 Utilisation dans Laravel
-
-### CSS Variables
-
-```css
-/* resources/css/app.css */
-@import './design-tokens.css';
-
-.my-component {
-  background-color: var(--primary);
-  color: var(--primary-fg);
-  border: 1px solid var(--border);
-}
-```
-
-### JSON (pour Blade, JavaScript, etc.)
-
-```php
-// app/Helpers/DesignTokens.php
-<?php
-
-class DesignTokens
-{
-    public static function get(string $brand = 'certivote'): array
-    {
-        $path = resource_path("design-tokens/build/{$brand}/{$brand}.json");
-
-        if (!file_exists($path)) {
-            throw new \Exception("Design tokens not found for brand: {$brand}");
-        }
-
-        return json_decode(file_get_contents($path), true);
-    }
-
-    public static function getValue(string $key, string $brand = 'certivote'): ?string
-    {
-        $tokens = self::get($brand);
-        return $tokens[$key] ?? null;
-    }
-}
-```
-
-```blade
-{{-- resources/views/components/button.blade.php --}}
-@php
-    $primary = \App\Helpers\DesignTokens::getValue('primary');
-@endphp
-
-<button style="background-color: {{ $primary }}">
-    {{ $slot }}
-</button>
-```
-
-```js
-// resources/js/app.js
-import tokens from '@/design-tokens/certivote.json';
-
-console.log(tokens['primary']); // #ff867d
-```
-
-## 🔧 Développement
-
-### Installation
+## 📦 Installation
 
 ```bash
 npm install
 ```
 
-### Extraction depuis Figma
+Le build se fait automatiquement après l'installation. Un hook git est également installé pour rebuilder automatiquement après chaque `git pull`.
 
-```bash
-# Nécessite un token Figma avec scope file_variables:read (Enterprise uniquement)
-export FIGMA_TOKEN="your-token"
-export FIGMA_FILE_ID="your-file-id"
-npm run fetch
-```
+**💡 Recommandation** : Utilisez GitHub Actions dans vos projets pour mettre à jour automatiquement les tokens (voir section "Mettre à jour les tokens").
 
-### Build
+Les fichiers sont générés dans `build/{brand}/`.
 
-```bash
-npm run build
-```
+## 🎨 Utilisation
 
-Cela va :
-1. Séparer les tokens par brand depuis `tokens/all.json`
-2. Générer les fichiers CSS et JSON dans `build/{brand}/`
+### 1. Importer vos tokens
 
-### Structure des tokens
-
-Les tokens sont définis dans `tokens/all.json` avec la structure suivante :
+Éditez manuellement le fichier `tokens/all.json` pour y ajouter vos tokens :
 
 ```json
 {
   "colors": {
-    "cert-ivote": {
+    "certIvote": {
       "neutral50": "#fafafa",
-      "primary": "#ff867d"
+      "primary500": "#ff867d"
     },
-    "soluce-pay": {
+    "solucePay": {
       "neutral50": "#fafafa",
-      "primary": "#ff867d"
+      "primary500": "#46bab9"
     }
   },
   "theme": {
@@ -229,19 +42,153 @@ Les tokens sont définis dans `tokens/all.json` avec la structure suivante :
 }
 ```
 
-Le script `split-tokens.js` transforme automatiquement cette structure en fichiers séparés par brand.
+### 2. Générer les fichiers
 
-## 📝 Notes
+```bash
+npm run build
+```
 
-- Les préfixes `color-`, `theme-`, `brand-`, et `feedback-` sont automatiquement retirés
-- Les tirets dans les noms de tokens sont préservés (`neutral-50` au lieu de `neutral50`)
-- Le timestamp dans les fichiers générés utilise le fuseau horaire Europe/Paris (CET)
+Cela génère automatiquement :
 
-## 🔐 Secrets GitHub
+- Les fichiers CSS (`{brand}.css`) avec les variables CSS
+- Les fichiers JSON (`{brand}.json`)
+- Les fichiers Tailwind 4 (`{brand}-tailwind-theme.css`) avec la configuration `@theme` complète
 
-Pour activer l'extraction automatique depuis Figma, configurez ces secrets dans GitHub :
+Tous les fichiers sont dans `build/{brand}/` pour chaque brand.
 
-- `FIGMA_TOKEN` : Token Figma avec scope `file_variables:read` (Enterprise uniquement)
-- `FIGMA_FILE_ID` : ID du fichier Figma
+## 🚀 Intégration dans un projet
 
-Pour les plans Pro, exportez manuellement les tokens via un plugin Figma et placez-les dans `tokens/all.json`.
+### Ajouter le repo comme submodule
+
+```bash
+# Dans votre projet
+git submodule add https://github.com/votre-org/design-tokens.git design-tokens
+git submodule update --init --recursive
+cd design-tokens
+npm install
+```
+
+Le build se fait automatiquement après `npm install` et le hook git est installé.
+
+### Mettre à jour les tokens automatiquement avec GitHub Actions
+
+#### Option 1 : Workflow automatique dans vos projets (Recommandé)
+
+Créez un fichier `.github/workflows/update-design-tokens.yml` dans votre projet :
+
+```yaml
+name: Update Design Tokens
+
+on:
+  schedule:
+    # Vérifie les mises à jour tous les jours à 6h
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Permet de déclencher manuellement
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update submodule
+        run: |
+          git submodule update --remote --merge design-tokens
+          cd design-tokens
+          npm install
+          npm run build
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add design-tokens/
+          git diff --staged --quiet || git commit -m "chore: update design tokens"
+          git push
+```
+
+Ce workflow :
+
+- Se déclenche automatiquement tous les jours à 6h
+- Peut être déclenché manuellement depuis l'onglet Actions de GitHub
+- Met à jour le submodule, rebuild les tokens et commit automatiquement
+
+#### Option 2 : Mise à jour manuelle (si nécessaire)
+
+```bash
+cd design-tokens
+git pull origin main
+```
+
+Le build se fait automatiquement après le `git pull` grâce au hook git installé.
+
+## 🎯 Intégration avec Tailwind CSS 4
+
+### Dans votre fichier CSS principal
+
+Dans votre fichier CSS principal (ex: `app.css`, `globals.css`, ou `main.css`) :
+
+```css
+@import "tailwindcss";
+@import "./design-tokens/build/certivote/certivote.css";
+@import "./design-tokens/build/certivote/certivote-tailwind-theme.css";
+```
+
+C'est tout ! Le fichier `certivote-tailwind-theme.css` contient déjà :
+
+- La désactivation des couleurs par défaut de Tailwind (`--color-*: initial;`)
+- Le mapping de toutes vos variables CSS vers Tailwind
+- Toutes vos couleurs disponibles en classes Tailwind
+
+Tout est généré automatiquement lors du build, vous n'avez rien à configurer manuellement.
+
+### Utilisation dans vos composants
+
+Une fois configuré, vous pouvez utiliser vos tokens directement dans vos classes Tailwind :
+
+```jsx
+// Utiliser vos tokens via Tailwind
+<div className="bg-primary-500 text-white">
+  <p className="text-neutral-700">Contenu</p>
+</div>
+
+<button className="bg-accent-600 hover:bg-accent-700 text-white">
+  Bouton
+</button>
+
+<div className="border border-border bg-bg text-fg">
+  Carte
+</div>
+```
+
+## 📝 Structure des tokens
+
+Les tokens sont organisés dans `tokens/all.json` :
+
+- **`colors`** : Couleurs par brand (certIvote, solucePay, etc.)
+- **`theme`** : Variables de thème partagées (bg, fg, border, etc.)
+
+Le script `split-tokens.js` sépare automatiquement les tokens par brand avant la génération.
+
+## 🔧 Scripts disponibles
+
+- `npm run build` : Génère les fichiers CSS, JSON et la configuration Tailwind 4 (@theme) pour tous les brands
+- `npm run split` : Sépare uniquement les tokens par brand (sans build)
+- `npm run install-hooks` : Réinstalle le hook git manuellement (si nécessaire)
+
+## 💡 Exemple complet
+
+Voici un exemple de fichier CSS complet pour un projet avec Tailwind 4 :
+
+```css
+/* app.css */
+@import "tailwindcss";
+@import "./design-tokens/build/certivote/certivote.css";
+@import "./design-tokens/build/certivote/certivote-tailwind-theme.css";
+```
+
+Une fois importé, toutes vos couleurs sont disponibles en classes Tailwind et les couleurs par défaut sont désactivées. Tout est automatique !
