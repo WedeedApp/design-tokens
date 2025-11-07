@@ -18,7 +18,7 @@ Les fichiers sont générés dans `build/{brand}/`.
 
 ### 1. Importer vos tokens
 
-Éditez manuellement le fichier `tokens/all.json` pour y ajouter vos tokens :
+Éditez manuellement le fichier `tokens/all.json` pour y ajouter vos tokens généré avec le plugin figma "Figma Variables to JSON" :
 
 ```json
 {
