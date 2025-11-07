@@ -222,7 +222,18 @@
       "accent700": "#060246",
       "accent800": "#04012f",
       "accent900": "#020117",
-      "accent950": "#01000c"
+      "accent950": "#01000c",
+      "secondary50": "#fafafa",
+      "secondary100": "#f5f5f5",
+      "secondary200": "#e5e5e5",
+      "secondary300": "#d4d4d4",
+      "secondary400": "#a3a3a3",
+      "secondary500": "#737373",
+      "secondary600": "#525252",
+      "secondary700": "#404040",
+      "secondary800": "#262626",
+      "secondary900": "#171717",
+      "secondary950": "#0a0a0a"
     },
     "solucePay": {
       "neutral50": "#fafafa",
@@ -446,7 +457,18 @@
       "accent700": "#732a86",
       "accent800": "#4d1c5a",
       "accent900": "#260e2d",
-      "accent950": "#130716"
+      "accent950": "#130716",
+      "secondary50": "#edf8f8",
+      "secondary100": "#daf1f1",
+      "secondary200": "#b5e3e3",
+      "secondary300": "#90d6d5",
+      "secondary400": "#6bc8c7",
+      "secondary500": "#46bab9",
+      "secondary600": "#389594",
+      "secondary700": "#2a706f",
+      "secondary800": "#1c4a4a",
+      "secondary900": "#0e2525",
+      "secondary950": "#071313"
     }
   },
   "theme": {
@@ -455,8 +477,8 @@
       "fg": "#000000",
       "brandPrimary": "#ff867d",
       "brandPrimaryFg": "#ffffff",
-      "brandSecondary": "#f5f5f5",
-      "brandSecondaryFg": "#000000",
+      "brandSecondary": "#0a0a0a",
+      "brandSecondaryFg": "#ffffff",
       "bgMuted": "#fafafa",
       "fgSubtle": "#737373",
       "brandAccent": "#0a0375",
@@ -484,11 +506,15 @@
       "surfaceSidebarFg": "#ffffff",
       "borderHover": "#a3a3a3",
       "brandPrimarySubtle": "#fff2f1",
-      "brandSecondarySubtle": "#fafafa",
+      "brandSecondarySubtle": "#525252",
       "brandAccentSubtle": "#9993ef",
       "feedbackSuccessSubtle": "#dcfce7",
       "feedbackWarningSubtle": "#fff7ed",
-      "feedbackDestructiveSubtle": "#fef2f2"
+      "feedbackDestructiveSubtle": "#fef2f2",
+      "brandTertiary": "#f5f5f5",
+      "brandTertiarySubtle": "#fafafa",
+      "brandTertiaryFg": "#000000",
+      "brandTertiaryRing": "#e5e5e5"
     }
   }
 }
