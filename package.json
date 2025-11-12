@@ -1,6 +1,6 @@
 {
   "name": "wedeed-design-system",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Design system de Wedeed",
   "main": "build/index.js",
