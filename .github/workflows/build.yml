@@ -69,6 +69,9 @@ jobs:
           # Créer le nouveau tag
           git tag "v${NEW_VERSION}"
 
+          # Synchroniser avec le remote avant de pousser
+          git pull --rebase origin main
+
           # Pousser le commit et le tag
           git push origin main --tags
         env:
