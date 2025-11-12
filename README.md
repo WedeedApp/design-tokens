@@ -1,22 +1,25 @@
 # Design Tokens
 
-Design tokens multi-brand de Wedeed pour Tailwind CSS 4.
+Design system de Wedeed.
 
-## Installation
-
-```bash
-bun install wedeedapp-design-tokens --save-dev
-```
-
-Si votre projet utilise Laravel Sail :
+## 📦 Installation
 
 ```bash
-sail bun install wedeedapp-design-tokens --save-dev
+# npm
+npm install wedeedapp-design-tokens --save-dev
+
+# bun
+bun add wedeedapp-design-tokens --save-dev
+
+# sail bun
+sail bun add wedeedapp-design-tokens --save-dev
 ```
 
-## Utilisation avec Tailwind CSS 4
+## 🎯 Intégration avec Tailwind CSS 4
 
-Dans votre fichier CSS principal, importez le thème de votre marque :
+### Dans votre fichier CSS principal
+
+Dans votre fichier CSS principal (ex: `app.css`, `globals.css`, ou `main.css`), importez le thème de votre marque :
 
 ```css
 @import "tailwindcss";
