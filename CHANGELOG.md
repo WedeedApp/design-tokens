@@ -12,9 +12,9 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 #### Ajouté
 
 - Configuration du package NPM `wedeedapp-design-tokens`
-- Support multi-brand (Certivote, SolucePay)
+- Support multi-brand
 - Génération automatique depuis Figma
-- Fichiers générés pour chaque brand :
+- Fichiers générés pour chaque marque :
   - CSS avec variables CSS (`{brand}.css`)
   - JSON plat (`{brand}.json`)
   - Configuration Tailwind 4 (`{brand}-tailwind-theme.css`)
@@ -27,14 +27,9 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 - Dépendances de build déplacées vers `devDependencies`
 - Suppression du hook git `postinstall`
 
-### Brands Disponibles
+### Fichiers par Marque
 
-- **Certivote** : `wedeedapp-design-tokens/build/certivote/`
-- **SolucePay** : `wedeedapp-design-tokens/build/solucepay/`
-
-### Fichiers par Brand
-
-Chaque brand contient :
+Chaque marque contient :
 - `{brand}.css` - Variables CSS
 - `{brand}.json` - Tokens en format JSON
 - `{brand}-tailwind-theme.css` - Configuration @theme pour Tailwind 4
