@@ -22,16 +22,6 @@
   "bugs": {
     "url": "https://github.com/wedeedapp/design-tokens/issues"
   },
-  "keywords": [
-    "design-tokens",
-    "figma",
-    "style-dictionary",
-    "tailwind",
-    "css-variables",
-    "certivote",
-    "solucepay",
-    "multi-brand"
-  ],
   "author": "WeDeed",
   "license": "ISC",
   "devDependencies": {
