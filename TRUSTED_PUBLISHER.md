@@ -18,7 +18,7 @@ Ce guide explique comment configurer le Trusted Publisher pour publier automatiq
    - **Provider**: `GitHub`
    - **Repository Owner**: `WedeedApp`
    - **Repository Name**: `design-tokens`
-   - **Workflow File**: `publish.yml` (nom du fichier uniquement, pas le chemin)
+   - **Workflow File**: `build.yml` (nom du fichier uniquement, pas le chemin)
    - **Environment** (optionnel): laissez vide
 6. Cliquez sur **Add**
 
@@ -26,30 +26,31 @@ Ce guide explique comment configurer le Trusted Publisher pour publier automatiq
 
 ## 🚀 Étape 2 : Publier une nouvelle version
 
-Pour publier une nouvelle version, il suffit de créer un tag Git :
+La publication est **automatique** ! Il suffit de modifier vos tokens et de push :
 
 ```bash
-# 1. Mettre à jour les tokens dans tokens/all.json
+# 1. Modifier les tokens dans tokens/all.json
+# Exemple: modifier une couleur, ajouter un token, etc.
 
-# 2. Incrémenter la version
-npm version patch  # 1.0.0 → 1.0.1
-# ou
-npm version minor  # 1.0.0 → 1.1.0
-# ou
-npm version major  # 1.0.0 → 2.0.0
-
-# 3. Pousser le tag
-git push --tags
+# 2. Commit et push
+git add tokens/all.json
+git commit -m "feat: mise à jour des tokens"
+git push
 ```
 
-Le workflow GitHub Actions se déclenchera automatiquement et publiera le package sur NPM ! 🎉
+**C'est tout !** Le workflow GitHub Actions va automatiquement :
+- ✅ Builder les tokens
+- ✅ Créer un tag avec version patch (1.0.0 → 1.0.1)
+- ✅ Publier sur NPM
+
+La nouvelle version sera disponible sur NPM quelques minutes après votre push ! 🎉
 
 ## 🔍 Vérifier la publication
 
-Une fois le tag poussé :
+Après votre push :
 
 1. Allez sur GitHub → Actions
-2. Vous verrez le workflow "Publish to NPM" en cours d'exécution
+2. Vous verrez le workflow "Build and Release" en cours d'exécution
 3. Une fois terminé (✅), vérifiez sur [npmjs.com](https://www.npmjs.com/package/wedeed-design-system)
 
 ## ⚠️ Troubleshooting
@@ -58,11 +59,11 @@ Une fois le tag poussé :
 
 Vérifiez que le Trusted Publisher est bien configuré sur NPM avec les bons paramètres (owner, repository, workflow).
 
-### Le tag ne déclenche pas le workflow
+### Le workflow ne publie pas sur NPM
 
 Vérifiez que :
-- Le tag commence par `v` (ex: `v1.0.1`)
-- Le fichier `.github/workflows/publish.yml` existe
+- Le Trusted Publisher est configuré sur npmjs.com
+- Il y a bien eu des modifications dans `tokens/` ou `build/`
 - Le workflow est activé dans Settings → Actions
 
 ## 📝 Notes
