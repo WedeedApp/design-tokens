@@ -1,7 +1,7 @@
 {
   "colors": {
     "certIvote": {
-      "neutral50": "#fafafb",
+      "neutral50": "#fafafa",
       "neutral100": "#f5f5f5",
       "neutral200": "#e5e5e5",
       "neutral300": "#d4d4d4",
@@ -41,7 +41,7 @@
       "orange200": "#fed7aa",
       "orange300": "#fdba74",
       "orange400": "#fb923c",
-      "orange500": "#759856",
+      "orange500": "#f97316",
       "orange600": "#ea580c",
       "orange700": "#c2410c",
       "orange800": "#9a3412",
