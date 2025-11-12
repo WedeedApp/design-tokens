@@ -13,7 +13,7 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 - Configuration du package NPM `wedeed-design-system`
 - Support multi-brand
-- Génération automatique depuis Figma
+- Génération automatique des tokens
 - Fichiers générés pour chaque marque :
   - CSS avec variables CSS (`{brand}.css`)
   - JSON plat (`{brand}.json`)
