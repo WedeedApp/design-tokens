@@ -36,7 +36,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add tokens/ build/
+          git add tokens/ build/ package.json
           if git diff --staged --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
             echo "Aucun changement détecté"
@@ -47,11 +47,25 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Bump version and commit everything
+      - name: Bump version, commit and tag
         if: steps.check.outputs.changed == 'true'
         run: |
-          # npm version va créer un commit avec les fichiers buildés inclus
-          npm version patch -m "chore: release %s [skip ci]"
+          # Incrémenter la version dans package.json
+          npm version patch --no-git-tag-version
+          
+          # Ajouter package.json avec la nouvelle version
+          git add package.json
+          
+          # Récupérer la nouvelle version
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          
+          # Créer un commit avec TOUS les fichiers (build + nouvelle version)
+          git commit -m "chore: release v${NEW_VERSION} [skip ci]"
+          
+          # Créer le tag
+          git tag "v${NEW_VERSION}"
+          
+          # Pousser le commit et le tag
           git push origin main --tags
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
