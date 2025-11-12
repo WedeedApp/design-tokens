@@ -94,21 +94,21 @@ Si vous n'êtes pas connecté, faites `npm login`.
 
 ### Le package existe déjà
 
-Si `wedeedapp-design-tokens` est déjà pris, choisissez un autre nom dans `package.json` :
+Si `wedeed-design-system` est déjà pris, choisissez un autre nom dans `package.json` :
 
 ```json
 {
-  "name": "votre-org-design-tokens"
+  "name": "votre-org-design-system"
 }
 ```
 
 ### Créer une organisation NPM pour utiliser un scope
 
-Si vous voulez utiliser un nom scoped comme `@wedeedapp/design-tokens` :
+Si vous voulez utiliser un nom scoped comme `@wedeed/design-system` :
 
 1. Allez sur [npmjs.com](https://www.npmjs.com/)
-2. Créez une organisation appelée "wedeedapp"
-3. Changez le nom dans `package.json` en `@wedeedapp/design-tokens`
+2. Créez une organisation appelée "wedeed"
+3. Changez le nom dans `package.json` en `@wedeed/design-system`
 4. Republiez avec `npm publish`
 
 ### Les fichiers ne sont pas inclus

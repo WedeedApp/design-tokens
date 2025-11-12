@@ -11,7 +11,7 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 #### Ajouté
 
-- Configuration du package NPM `wedeedapp-design-tokens`
+- Configuration du package NPM `wedeed-design-system`
 - Support multi-brand
 - Génération automatique depuis Figma
 - Fichiers générés pour chaque marque :
