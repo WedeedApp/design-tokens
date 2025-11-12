@@ -1,4 +1,4 @@
-name: Build and Release
+name: Build Tokens
 
 on:
   push:
@@ -6,21 +6,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-release:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      id-token: write
     steps:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: "https://registry.npmjs.org"
 
       - run: npm ci
 
@@ -31,58 +28,11 @@ jobs:
       - name: Build Style Dictionary
         run: npm run build
 
-      - name: Check for changes and prepare release
-        id: check
+      - name: Commit and push build
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add tokens/ build/ package.json
-          if git diff --staged --quiet; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-            echo "Aucun changement détecté"
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
-            echo "Changements détectés, préparation de la release"
-          fi
+          git add tokens/ build/
+          git diff --staged --quiet || (git commit -m "ci: update tokens and build [skip ci]" && git push origin main)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Bump version, commit and tag
-        if: steps.check.outputs.changed == 'true'
-        run: |
-          # Incrémenter la version dans package.json
-          npm version patch --no-git-tag-version
-
-          # Ajouter package.json avec la nouvelle version
-          git add package.json
-
-          # Récupérer la nouvelle version
-          NEW_VERSION=$(node -p "require('./package.json').version")
-
-          # Créer un commit avec TOUS les fichiers (build + nouvelle version)
-          git commit -m "chore: release v${NEW_VERSION} [skip ci]"
-
-          # Supprimer le tag s'il existe déjà (localement et à distance)
-          git tag -d "v${NEW_VERSION}" 2>/dev/null || true
-          git push origin --delete "v${NEW_VERSION}" 2>/dev/null || true
-
-          # Créer le nouveau tag
-          git tag "v${NEW_VERSION}"
-
-          # Stash les changements non commités s'il y en a
-          git stash --include-untracked || true
-
-          # Synchroniser avec le remote avant de pousser
-          git pull --rebase origin main
-
-          # Restaurer le stash s'il existe
-          git stash pop || true
-
-          # Pousser le commit et le tag
-          git push origin main --tags
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish to NPM
-        if: steps.check.outputs.changed == 'true'
-        run: npm publish --provenance --access public
