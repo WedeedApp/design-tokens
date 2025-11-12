@@ -5,7 +5,13 @@ Design tokens multi-brand (Certivote, SolucePay) pour Tailwind CSS 4.
 ## Installation
 
 ```bash
-npm install wedeedapp-design-tokens --save-dev
+bun install wedeedapp-design-tokens --save-dev
+```
+
+Si votre projet utilise Laravel Sail :
+
+```bash
+sail bun install wedeedapp-design-tokens --save-dev
 ```
 
 ## Utilisation avec Tailwind CSS 4
