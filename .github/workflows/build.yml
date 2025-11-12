@@ -52,19 +52,23 @@ jobs:
         run: |
           # Incrémenter la version dans package.json
           npm version patch --no-git-tag-version
-          
+
           # Ajouter package.json avec la nouvelle version
           git add package.json
-          
+
           # Récupérer la nouvelle version
           NEW_VERSION=$(node -p "require('./package.json').version")
-          
+
           # Créer un commit avec TOUS les fichiers (build + nouvelle version)
           git commit -m "chore: release v${NEW_VERSION} [skip ci]"
-          
-          # Créer le tag
+
+          # Supprimer le tag s'il existe déjà (localement et à distance)
+          git tag -d "v${NEW_VERSION}" 2>/dev/null || true
+          git push origin --delete "v${NEW_VERSION}" 2>/dev/null || true
+
+          # Créer le nouveau tag
           git tag "v${NEW_VERSION}"
-          
+
           # Pousser le commit et le tag
           git push origin main --tags
         env:
