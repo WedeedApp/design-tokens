@@ -18,7 +18,7 @@ Ce guide explique comment configurer le Trusted Publisher pour publier automatiq
    - **Provider**: `GitHub`
    - **Repository Owner**: `WedeedApp`
    - **Repository Name**: `design-tokens`
-   - **Workflow File**: `.github/workflows/publish.yml`
+   - **Workflow File**: `publish.yml` (nom du fichier uniquement, pas le chemin)
    - **Environment** (optionnel): laissez vide
 6. Cliquez sur **Add**
 
@@ -70,4 +70,3 @@ Vérifiez que :
 - **Pas besoin de token NPM** : Le Trusted Publisher utilise OIDC pour l'authentification
 - **Sécurisé** : Seuls les workflows depuis votre repository GitHub peuvent publier
 - **Traçabilité** : NPM sait exactement quelle version de code a été publiée
-
