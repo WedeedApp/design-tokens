@@ -10,8 +10,7 @@
   "scripts": {
     "split": "node split-tokens.js",
     "build": "npm run split && npx style-dictionary build --config style-dictionary.config.cjs && node generate-tailwind-theme.js",
-    "prepublishOnly": "npm run build",
-    "install-hooks": "node install-hooks.js"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
