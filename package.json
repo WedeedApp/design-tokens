@@ -1,6 +1,6 @@
 {
   "name": "wedeedapp-design-tokens",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Design tokens multi-brand (Certivote, SolucePay) générés depuis Figma avec Style Dictionary",
   "main": "build/index.js",
