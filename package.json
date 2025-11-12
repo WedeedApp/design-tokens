@@ -1,23 +1,40 @@
 {
-  "name": "design-tokens",
+  "name": "wedeedapp-design-tokens",
   "version": "1.0.0",
   "type": "module",
-  "description": "Design tokens multi-brand from Figma",
+  "description": "Design tokens multi-brand (Certivote, SolucePay) générés depuis Figma avec Style Dictionary",
+  "main": "build/index.js",
+  "files": [
+    "build/**/*"
+  ],
   "scripts": {
     "split": "node split-tokens.js",
     "build": "npm run split && npx style-dictionary build --config style-dictionary.config.cjs && node generate-tailwind-theme.js",
-    "postinstall": "npm run build && node install-hooks.js",
+    "prepublishOnly": "npm run build",
     "install-hooks": "node install-hooks.js",
     "fetch": "node fetch-figma-variables.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wedeedapp/design-tokens.git"
+  },
+  "homepage": "https://github.com/wedeedapp/design-tokens#readme",
+  "bugs": {
+    "url": "https://github.com/wedeedapp/design-tokens/issues"
   },
   "keywords": [
     "design-tokens",
     "figma",
-    "style-dictionary"
+    "style-dictionary",
+    "tailwind",
+    "css-variables",
+    "certivote",
+    "solucepay",
+    "multi-brand"
   ],
-  "author": "",
+  "author": "WeDeed",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "node-fetch": "^3.3.2",
     "style-dictionary": "^3.9.0"
   }

@@ -1,0 +1,38 @@
+# Fichiers sources (non nécessaires dans le package)
+tokens/
+git-hooks/
+
+# Scripts de développement
+fetch-figma-variables.js
+split-tokens.js
+generate-tailwind-theme.js
+style-dictionary.config.cjs
+install-hooks.js
+
+# Configuration Git
+.git/
+.gitignore
+.gitattributes
+
+# Node modules
+node_modules/
+
+# Documentation de développement (optionnel, vous pouvez retirer cette ligne si vous voulez inclure le README)
+# README.md
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers de configuration d'éditeur
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Fichiers temporaires
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
