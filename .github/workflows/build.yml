@@ -19,17 +19,6 @@ jobs:
           node-version: 20
 
       - run: npm ci
-      - name: Fetch tokens from Figma (Enterprise only)
-        run: |
-          if [ -n "${{ secrets.FIGMA_TOKEN }}" ] && [ -n "${{ secrets.FIGMA_FILE_ID }}" ]; then
-            node fetch-figma-variables.js || echo "⚠️  Extraction Figma échouée (peut nécessiter plan Enterprise)"
-          else
-            echo "ℹ️  Pas de credentials Figma configurés, utilisation des tokens existants"
-          fi
-        env:
-          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-          FIGMA_FILE_ID: ${{ secrets.FIGMA_FILE_ID }}
-        continue-on-error: true
 
       - name: Split tokens by brand
         run: npm run split
