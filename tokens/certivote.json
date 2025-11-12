@@ -1,7 +1,7 @@
 {
   "color": {
     "neutral-50": {
-      "value": "#fafafb"
+      "value": "#fafafa"
     },
     "neutral-100": {
       "value": "#f5f5f5"
@@ -121,7 +121,7 @@
       "value": "#fb923c"
     },
     "orange-500": {
-      "value": "#759856"
+      "value": "#f97316"
     },
     "orange-600": {
       "value": "#ea580c"
